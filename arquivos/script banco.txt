@@ -1,0 +1,23 @@
+create table tb_sexos(
+	sex_codigo int not null primary key auto_increment,
+    sex_sexo varchar(60) not null
+);
+
+create table tb_pacientes(
+	pac_codigo int not null primary key auto_increment,
+    pac_idade varchar(40),
+    pac_nome varchar(80) not null,
+    pac_sex_cod int not null,
+    
+    CONSTRAINT fk_sexo FOREIGN KEY ( pac_sex_cod ) REFERENCES tb_sexos ( sex_codigo )
+);
+
+create table tb_prescricoes(
+	pre_codigo int not null primary key auto_increment,
+    pre_data varchar(40),
+    pre_hora int,
+    pre_prescricao varchar(300) not null,
+    pre_pac_cod int not null,
+    
+    CONSTRAINT fk_pacientes FOREIGN KEY ( pre_pac_cod ) REFERENCES tb_pacientes ( pac_codigo )
+);
