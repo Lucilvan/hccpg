@@ -21,7 +21,7 @@
 					<SELECT name="sexo"> 
 						<OPTION VALUE="">Sexo</OPTION> 
 						<OPTION VALUE="1">Masculino</OPTION> 
-						<OPTION VALUE="2">Feminíno</OPTION> 
+						<OPTION VALUE="11">Feminíno</OPTION> 
 					</SELECT>
 					
 					<input type="submit" value="CADASTRAR">
