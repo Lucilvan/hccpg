@@ -53,9 +53,9 @@
     //Instancia um novo documento com o nome de pdf
     $pdf = new Cezpdf('a4'); 
    
-	if (strpos(PHP_OS, 'WIN') !== false) {
-		$pdf->tempPath = 'C:/temp';
-	}
+	//if (strpos(PHP_OS, 'WIN') !== false) {
+		//$pdf->tempPath = 'C:/temp';
+	//}
 
     //Seleciona a fonte
     $pdf -> selectFont('pdf-php/src/fonts/Helvetica.afm'); 
