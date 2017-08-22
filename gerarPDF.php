@@ -55,11 +55,10 @@
    
 	//if (strpos(PHP_OS, 'WIN') !== false) {
 		//$pdf->tempPath = 'C:/temp';
-	//}else{
-	if (strpos(PHP_OS, 'LINUX') !== false) {
-		$pdf->tempPath = '/tmp';
-	}
 	//}
+	if (strpos(PHP_OS, 'LINUX') !== false) {
+		$pdf->tempPath = '/temp';
+	}
 
     //Seleciona a fonte
     $pdf -> selectFont('pdf-php/src/fonts/Helvetica.afm'); 
