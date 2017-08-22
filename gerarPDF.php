@@ -56,7 +56,7 @@
 	//if (strpos(PHP_OS, 'WIN') !== false) {
 		//$pdf->tempPath = 'C:/temp';
 	//}
-	if (strpos(PHP_OS, 'LINUX') !== false) {
+	if (stristr(PHP_OS, 'LINUX') !== false) {
 		$pdf->tempPath = '/temp';
 	}
 
