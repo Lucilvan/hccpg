@@ -1,7 +1,7 @@
 <?php
 	//Acesso aos dados do banco
 	$hostname_MySql = "us-cdbr-iron-east-05.cleardb.net";  // Servidor
-	$database_MySql = "heroku_3e2f3c7b538415b"; // banco de dados
+	$database_MySql = "heroku_3e2f3c7b538415b?reconnect=true"; // banco de dados
 	$username_MySql = "bf1886c2887a04"; // Usuario
 	$password_MySql = "52d302f7";  // senha
 	//$hostname_MySql = "localhost";  // Servidor
@@ -53,9 +53,13 @@
     //Instancia um novo documento com o nome de pdf
     $pdf = new Cezpdf('a4'); 
    
-	//if (strpos(PHP_OS, 'WIN') !== false) {
-		//$pdf->tempPath = 'C:/temp';
-	//}
+	if (strpos(PHP_OS, 'WIN') !== false) {
+		$pdf->tempPath = 'C:/temp';
+	}else{
+		if (strpos(PHP_OS, 'LINUX') !== false) {
+			$pdf->tempPath = '/tmp';
+		}
+	}
 
     //Seleciona a fonte
     $pdf -> selectFont('pdf-php/src/fonts/Helvetica.afm'); 
