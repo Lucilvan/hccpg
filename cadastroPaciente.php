@@ -4,7 +4,11 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link rel="stylesheet" type="text/css" href="css/indexCss.css">
 		<meta name="keywords" content="Gastronomia, Home Chef, Personal, Chef, Home, Bolos, Almoço, Amigos, Jantar, Lanche, Festas, Eventos, Culinária">
-	</head>
+		<?php  
+			include("classes/jdbc.php");
+			verificarSessão();
+		?>	
+</head>
 	<body>
 		<br>
 
@@ -14,8 +18,14 @@
 			<div class="container">
 				<h1>HCCPG</h1>
 				<p class="title">CADASTRO DE PACIENTE</p>
+				<p>
+					<?php 
+						echo" Bem vindo $logado";
+					?>
+					<a href="classes/sair.php"> | Sair</a>
+				</p>
 				
-				<form action="cadastrarPaciente.php" role="form" method="post" name="form" id="form">
+				<form action="classes/cadastrarPaciente.php" role="form" method="post" name="form" id="form">
 					<input type="text" id="nome" name="nome" placeholder="Nome do Paciente">
 					<input type="text" id="idade" name="idade" placeholder="Idade">
 					<SELECT name="sexo"> 
@@ -25,9 +35,9 @@
 					</SELECT>
 					
 					<input type="submit" value="CADASTRAR">
-					
 				</form>
-				<p><a id="button" href="index.html"><< INDEX | &nbsp</a>
+
+				<p><a id="button" href="menu.php"><< INDEX | &nbsp</a>
 				<a id="button" href="novaPrescricao.php">PRESCRIÇÃO >></a></p>
 				<br>
 					  

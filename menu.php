@@ -5,6 +5,10 @@
 		<link rel="stylesheet" type="text/css" href="css/indexCss.css">
 		<meta charset="UTF-8"> 
 		<meta name="keywords" content="PMRN, Policia Militar, HPM, Protuário">
+		<?php  
+			include("classes/jdbc.php");
+			verificarSessão();
+		?>
 	</head>
 	<body>
 		<br>
@@ -15,6 +19,12 @@
 			<div class="container">
 				<h1>HCCPG</h1>
 				<p class="title">DASHBOAD</p>
+				<p>
+					<?php 
+						echo " Bem vindo $logado";
+					?>
+					<a href="classes/sair.php"> | Sair</a>
+				</p>
 				<hr>
 				<p><a id="button" href="cadastroPaciente.php">CADASTRAR PACIENTE</a></p>
 				<p><a id="button" href="novaPrescricao.php">NOVA PRESCRIÇÃO</a></p>

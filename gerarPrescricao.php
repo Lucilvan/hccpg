@@ -4,6 +4,11 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link rel="stylesheet" type="text/css" href="css/indexCss.css">
 		<meta name="keywords" content="Gastronomia, Home Chef, Personal, Chef, Home, Bolos, Almoço, Amigos, Jantar, Lanche, Festas, Eventos, Culinária">
+		<?php  
+			include("classes/jdbc.php");
+			verificarSessão();
+			pegarData();
+		?>
 	</head>
 	<body>
 		<br>
@@ -13,38 +18,20 @@
 			<div class="container">
 				<h1>HCCPG</h1>
 				<p class="title">PRESCRIÇÃO MÉDICA</p>
+				<p>
+					<?php 
+						echo" Bem vindo $logado";
+					?>
+					<a href="classes/sair.php"> | Sair</a>
+				</p>
 				
-				<?php
-					$hostname_MySql = "us-cdbr-iron-east-05.cleardb.net";  // Servidor
-					$database_MySql = "heroku_3e2f3c7b538415b"; // banco de dados
-					$username_MySql = "bf1886c2887a04"; // Usuario
-					$password_MySql = "52d302f7";  // senha
-					//$hostname_MySql = "localhost";  // Servidor
-					//$database_MySql = "hccpg"; // banco de dados
-					//$username_MySql = "root"; // Usuario
-					//$password_MySql = "";  // senha*/
-				
-					$con=mysqli_connect($hostname_MySql,$username_MySql,$password_MySql,$database_MySql);
-					// Check connection
-					if (mysqli_connect_errno())
-					  {
-					  echo "Failed to connect to MySQL: " . mysqli_connect_error();
-					  }
-
-					// Perform queries 
-					$query = mysqli_query($con,"SELECT pac_codigo, pac_nome FROM tb_pacientes order by pac_nome");
-					
-					date_default_timezone_set('America/Sao_Paulo');
-					$date = date('d/m/Y');
-				?>
-				
-				<form action="gerarPDF.php" role="form" method="post" name="form" id="form">
+				<form action="classes/gerarPDF.php" role="form" method="post" name="form" id="form">
 					<select name="nome" id="nome"> 
 						<option>Paciente</option>
 
-						<?php while($paciente = mysqli_fetch_array($query)) { ?>
-							<option value="<?php echo $paciente['pac_codigo'] ?>"><?php echo $paciente['pac_nome'] ?></option>
-						<?php } ?>
+						<?php
+							alimentarComboboxPaciente();
+						?>
 						
 					</select>
 					<input type="text" id="data" name="data" value="<?php echo $date;?>">
@@ -56,7 +43,7 @@
 					<input type="submit" value="IMPRIMIR PRESCRIÇÃO">
 				</form>
 
-				<p><a id="button" href="index.html"><< INDEX | &nbsp</a>
+				<p><a id="button" href="menu.php"><< INDEX | &nbsp</a>
 				<a id="button" href="cadastroPaciente.php">NOVO PACIENTE >></a></p>
 				<br>
 				<p><a id="button" href="http://www.freitassofthouse.com.br">Freitas SiftHouse</a> </p>

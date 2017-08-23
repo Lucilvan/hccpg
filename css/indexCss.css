@@ -43,7 +43,15 @@ button:hover, a:hover {
 }
 
 
-
+input[type=password], select, textarea {
+    width: 100%;
+    padding: 6px 10px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
 
 input[type=text], select, textarea {
     width: 100%;
