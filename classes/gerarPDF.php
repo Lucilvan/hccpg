@@ -39,8 +39,12 @@
     //Instancia um novo documento com o nome de pdf
     $pdf = new Cezpdf('a4'); 
    
+	if (strpos(PHP_OS, 'WIN') !== false) {
+		$pdf->tempPath = 'C:/temp';
+	}
+	
 	if (strpos(PHP_OS, 'LINUX') !== false) {
-		$pdf->tempPath = '/temp/';
+		$pdf->tempPath = '/tmp';
 	}
 
     //Seleciona a fonte
