@@ -25,7 +25,7 @@
 					?>
 					<a href="classes/sair.php"> | Sair</a>
 				</p>
-				<form action="cadastrarPrescricao.php" role="form" method="post" name="form" id="form">
+				<form action="classes/cadastrarPrescricao.php" role="form" method="post" name="form" id="form">
 					<select name="nome"> 
 						<option>Paciente</option>
 						<?php
