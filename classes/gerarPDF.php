@@ -40,11 +40,13 @@
     $pdf = new Cezpdf('a4'); 
    
 	if (strpos(PHP_OS, 'WIN') !== false) {
-		$pdf->tempPath = 'C:/temp';
+		//$pdf->tempPath = 'C:/temp';
+		$pdf->tempPath = '../arquivos';
 	}
 	
 	if (strpos(PHP_OS, 'LINUX') !== false) {
-		$pdf->tempPath = '/tmp';
+		#$pdf->tempPath = '/tmp';
+		$pdf->tempPath = '../arquivos';
 	}
 
     //Seleciona a fonte
